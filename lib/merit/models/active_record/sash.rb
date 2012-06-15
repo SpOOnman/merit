@@ -11,6 +11,7 @@ class Sash < ActiveRecord::Base
     bs.badge_id = badge_id
     bs.save
   end
+
   def rm_badge(badge_id)
     badges_sashes = BadgesSash.where(:badge_id => badge_id, :sash_id => self.id)
     # ActiveRecord::Relation#delete|destroy(_all) doesn't work with composite keys.

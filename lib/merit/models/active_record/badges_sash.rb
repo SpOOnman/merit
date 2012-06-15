@@ -1,9 +1,5 @@
 class BadgesSash < ActiveRecord::Base
-  belongs_to :sash
-
-  def badge
-    Badge.find(badge_id)
-  end
+  belongs_to :sash, :badge
 
   # To be used in the application, mark badge granting as notified to user
   def set_notified!(badge, sash)

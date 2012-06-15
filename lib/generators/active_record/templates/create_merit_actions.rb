@@ -1,7 +1,7 @@
 class CreateMeritActions < ActiveRecord::Migration
   def self.up
     create_table :merit_actions do |t|
-      t.integer :user_id # source
+      t.references :<%= table_name %>, :null => false
       t.string  :action_method
       t.integer :action_value
       t.boolean :had_errors
@@ -11,9 +11,16 @@ class CreateMeritActions < ActiveRecord::Migration
       t.string  :log, :default => nil
       t.timestamps
     end
+
+    add_index :merit_actions, :<%= table_name %>_id
+
+    # add_foreign_key :merit_actions :<%= table_name.pluralize %>
+
   end
 
   def self.down
+    # remove_foreign_key :merit_actions :<%= table_name.pluralize %>
+
     drop_table :merit_actions
   end
 end

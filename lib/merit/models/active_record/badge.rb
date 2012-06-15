@@ -1,4 +1,7 @@
 class Badge < ActiveRecord::Base
+  has_many :badges_sashes
+
+  validates :name, :presence => true
 
   # Grant badge to sash
   def grant_to(object_or_sash)
