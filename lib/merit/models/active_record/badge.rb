@@ -24,3 +24,5 @@ class Badge < ActiveRecord::Base
   end
 
 end
+
+puts "WTF"

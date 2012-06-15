@@ -22,6 +22,9 @@ module Merit
   class Engine < Rails::Engine
     initializer 'merit.controller' do |app|
       if Merit.orm == :active_record
+        puts "AAAAAAAAAAAAAAAAAAAAA"
+        require "merit/models/#{Merit.orm}/badge"
+        puts "AAAAAAAAAAAAAAAAAAAAA"
         require "merit/models/#{Merit.orm}/sash"
         require "merit/models/#{Merit.orm}/badges_sash"
       elsif Merit.orm == :mongoid
